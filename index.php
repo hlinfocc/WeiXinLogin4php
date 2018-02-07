@@ -17,7 +17,7 @@
 	}
 	#客户端请求认证,appid和key可存库，进行相应判断
 	if($appid!="" && $key!=""){
-		$arr=array("success"=>false,"openid"=>"","nickname"=>"","headimgurl"=>"","msg"=>"签名认证失败");
+		$arr=array("success"=>false,"wxdata"=>"","msg"=>"签名认证失败");
 		$urltoclient=$clientRedirect_uri."?data=".json_encode($arr);
 		echo "<script>location.href='".$urltoclient."';</script>";
 		exit;

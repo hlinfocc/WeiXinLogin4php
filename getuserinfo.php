@@ -19,17 +19,17 @@
 		$rs2json=$cyt->httpsget($url2);
 		$rs2=json_decode($rs2json, true);
 		if(isset($rs2["openid"]) && isset($rs2["nickname"]) && isset($rs2["headimgurl"])){
-			$arr=array("success"=>true,"data"=>$rs2json,"msg"=>"获取用户信息成功");
+			$arr=array("success"=>true,"wxdata"=>$rs2json,"msg"=>"获取用户信息成功");
 			$urltoclient=$clientRedirect_uri."?data=".json_encode($arr);
 			echo "<script>location.href='".$urltoclient."';</script>";
 		}else{
-			$arr=array("success"=>false,"data"=>"","msg"=>"获取用户信息失败");
+			$arr=array("success"=>false,"wxdata"=>"","msg"=>"获取用户信息失败");
 			$urltoclient=$clientRedirect_uri."?data=".json_encode($arr);
 			echo "<script>location.href='".$urltoclient."';</script>";
 		}
 		
 	}else{
-		$arr=array("success"=>false,"data"=>"","msg"=>"获取access_token失败");
+		$arr=array("success"=>false,"wxdata"=>"","msg"=>"获取access_token失败");
 		$urltoclient=$clientRedirect_uri."?data=".json_encode($arr);
 		echo "<script>location.href='".$urltoclient."';</script>";
 	}
